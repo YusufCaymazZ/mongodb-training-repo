@@ -8,7 +8,7 @@ from pymongo import MongoClient
 #load_dotenv()
 #uri = os.environ["uri"]
 
-client = MongoClient("mongodb+srv://yuscaymaz:yscymz@train.vxtmeeb.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://yuscaymaz:psswrd@train.vxtmeeb.mongodb.net/?retryWrites=true&w=majority")
 
 db = client.bank
 
