@@ -15,22 +15,47 @@ db = client.bank
 
 accounts_collection = db.accounts_collection
 #INSERTING
-"""new_account = {
+new_accounts = [{
     "acc_holder" : "Linus Torvalds",
-    "acc_id":"MD3948284",
+    "acc_id":"MD393445345",
     "acc_type":"checking",
-    "balance":43587934,
+    "balance":1500,
     "last_updated":datetime.datetime.utcnow(),
-}
+},
+{
+    "acc_holder" : "Linuz Torvalds",
+    "acc_id":"MD393445284",
+    "acc_type":"checking",
+    "balance":1750,
+    "last_updated":datetime.datetime.utcnow(),
+},
+{
+    "acc_holder" : "Linux Torvalds",
+    "acc_id":"MD393447884",
+    "acc_type":"checking",
+    "balance":2500,
+    "last_updated":datetime.datetime.utcnow(),
+},
+{
+    "acc_holder" : "Linux Torvalds",
+    "acc_id":"MD393447884",
+    "acc_type":"checking",
+    "balance":2500,
+    "last_updated":datetime.datetime.utcnow(),
+},
+]
 
-result = accounts_collection.insert_one(new_account)
+result = accounts_collection.insert_many(new_accounts)
 
-document_id = result.inserted_id
-print(f"_id of inserted document : {document_id}")
+document_ids = result.inserted_ids
+
+print("# of documents inserted: " + str(len(document_ids)))
+print(f"_ids of inserted documents: {document_ids}")
+
 
 # Query by ObjectId
 #document_to_find = {"_id": ObjectId(document_id)}
-"""
+
 #FINDING
 """documents_to_find2 = {"balance": {"$gt": 4700}}
 
@@ -47,7 +72,7 @@ for document in result:
 print("# of documents found: " + str(num_docs))"""
 
 #UPDATING
-# Filter
+"""# Filter
 select_accounts = {"balance": { "$gte" : 100}}
 
 # Update 
@@ -59,7 +84,22 @@ result = accounts_collection.update_many(select_accounts, set_field)
 print("Documents matched: " + str(result.matched_count))
 print("Documents updated: " + str(result.modified_count))
 pprint.pprint(accounts_collection.find_one(select_accounts))
+"""
+#DELETE
+"""# Filter for accounts with balance less than $2000
+documents_to_delete = {"balance": {"$gt": 1600}}
 
+# Search for sample document before delete
+print("Searching for sample target document before delete: ")
+pprint.pprint(accounts_collection.find_one(documents_to_delete))
 
+# Write an expression that deletes the target accounts.
+result = accounts_collection.delete_many(documents_to_delete)
 
-client.close
+# Search for sample document after delete
+print("Searching for sample target document after delete: ")
+pprint.pprint(accounts_collection.find_one(documents_to_delete))
+
+print("Documents deleted: " + str(result.deleted_count))
+"""
+client.close()
