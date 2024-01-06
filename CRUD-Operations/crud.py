@@ -5,9 +5,9 @@ from bson import ObjectId
 import pprint
 from dotenv import load_dotenv
 from pymongo import MongoClient
-
+from pymongo.errors import OperationFailure
 load_dotenv()
-uri = os.environ["uri"]
+uri = os.environ["URI"]
 
 client = MongoClient(uri)
 
