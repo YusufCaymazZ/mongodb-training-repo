@@ -23,6 +23,13 @@ new_accounts = [{
     "last_updated":datetime.datetime.utcnow(),
 },
 {
+    "acc_holder" : "Linus Torvald<",
+    "acc_id":"MD393442345",
+    "acc_type":"checking",
+    "balance":700,
+    "last_updated":datetime.datetime.utcnow(),
+},
+{
     "acc_holder" : "Linuz Torvalds",
     "acc_id":"MD393445284",
     "acc_type":"checking",
