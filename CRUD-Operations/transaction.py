@@ -7,7 +7,7 @@ from pymongo import MongoClient
 load_dotenv()
 URI = os.environ("URI")
 """
-client = MongoClient("mongodb+srv://psswrd:yscymz@train.vxtmeeb.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://username:psswrd@train.vxtmeeb.mongodb.net/?retryWrites=true&w=majority")
 
 def callback(
     session,
