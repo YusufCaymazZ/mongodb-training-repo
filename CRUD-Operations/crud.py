@@ -8,7 +8,7 @@ from pymongo import MongoClient
 from pymongo.errors import OperationFailure
 load_dotenv()
 uri = os.environ["URI"]
-
+#connecting
 client = MongoClient(uri)
 
 db = client.bank
